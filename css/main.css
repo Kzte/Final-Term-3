@@ -7,3 +7,43 @@
     height: 1px;
      background: #55868C;
 }
+
+
+#carouselExampleSlidesOnly{
+    padding-top: 100px;
+}
+
+.line2{
+    width: 1440.001px;
+    height: 1px;
+     background: #55868C;
+    margin-top: 50px;
+
+}
+.logo2{
+    justify-content: center;
+}
+
+.socials{
+    width: 23px;
+height: 23px;
+flex-shrink: 0;
+justify-content: end;
+}
+
+
+.nav-link {
+    color: #3C5E62;
+    text-align: center;
+    font-family: Quicksand;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.nav-link:hover {
+    color: #1b292b;
+}
+
+
