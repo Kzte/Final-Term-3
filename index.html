@@ -6,16 +6,18 @@
     <title>Pearl Serenity</title>
 
 <!--Style Sheets-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/main.css">
- 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body style="background: #CACAAA;">
 
 
     <!-- Nav Bar -->
 
-    <nav class="navbar fixed-top">
+    <nav class="navbar">
         <div class="container">
           
           <!-- Logo -->
@@ -47,19 +49,27 @@
             <img class="d-block w-100" src="assets/Untitled design.png" alt="First slide">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="assets/DV.JPG" alt="Second slide">
+            <img class="d-block w-100" src="assets/Untitled design carousel slide 2.png" alt="Second slide">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="assets/DV4.JPG" alt="Third slide">
+            <img class="d-block w-100" src="assets/carousel slide 3.png" alt="Third slide">
           </div>
         </div>
+        <a class="carousel-control-prev" href="#carouselExampleSlidesOnly" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleSlidesOnly" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          
+        </a>
       </div>
 
       <div class="container mt-5">
           <div class="accordion accordion-flush"  id="accordionExample">
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
                 About Us
               </button>
             </h2>
@@ -94,28 +104,34 @@
           </div>
         </div>
         <div class="accordion-item">
-            <h2 class="accordion-header" id="headingThree">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            <h2 class="accordion-header" id="headingFour">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                Weather
               </button>
             </h2>
-            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
               <div class="accordion-body">
               
             </div>
           </div>
         </div>
-
-        <footer>
-            <div class="line2">
-                </div>
-                <img class="logo2" src="assets/DV name logo 2 (1) (1).png" alt="logo" height="35" >
+        </div>
+        </div>
+        
+        <div class="footer-container">
+          <footer>
+            <div class="line2"></div>
+            <div id="spacing">  
+              <div></div>
+              <div id="logos"><img class="logo2" src="assets/DV name logo 2 (1) (1).png" alt="logo" height="35" ></div>
+              <div id="socials-container">
                 <img class="socials" src="assets/facebook (2).png" alt="">
                 <img class="socials" src="assets/instagram (2) (1).png" alt="">
-                <img class="socials" src="assets/tik-tok (1).png" alt="">
-
-
-        </footer>
+                <img class="socials" src="assets/tik-tok (1).png" alt="">                  
+              </div>
+            </div>  
+          </footer>
+        </div>
         
         
         <!--Javascript-->
@@ -123,7 +139,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-    
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        
       </body>
     
       
