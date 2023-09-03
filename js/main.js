@@ -107,7 +107,7 @@ trips = [
       destination: 'Literary Voyage',
       theme: 'Reading Theme Cruise',
       price: 15000,
-      image: 'assets/DV 10.jpg',
+      imageURL: 'assets/DV 10.jpg',
       information:
         'Embark on a 2-week Literary Voyage designed for book lovers. Immerse yourself in the world of literature with onboard book clubs, author meet-and-greets, and literary-themed excursions. Explore the charming Key West, known for its rich literary history, and enjoy reading under the Florida sun.',
     },
@@ -118,7 +118,7 @@ trips = [
         destination: 'Down Under Discovery',
         theme: 'Australasian Exploration',
         price: 28000,
-        image: 'assets/DV 11.jpg',
+        imageURL: 'assets/DV 11.jpg',
         information:
           'Discover the wonders of Australasia on this 2-week cruise. Explore the stunning landscapes, vibrant cities, and unique wildlife of Australia and New Zealand. Experience the rich culture and natural beauty of this diverse region.',
       },
@@ -129,7 +129,7 @@ trips = [
         destination: 'Mayan Mysteries',
         theme: 'Ancient Civilizations Expedition',
         price: 16500,
-        image: 'assets/DV 12.jpg',
+        imageURL: 'assets/DV 12.jpg',
         information:
           'Embark on a journey to uncover the mysteries of the Mayan civilization. Visit archaeological sites, learn about ancient rituals, and enjoy the beautiful beaches of Cozumel while delving into the history and culture of the Mayan people.',
       },
@@ -140,7 +140,7 @@ trips = [
         destination: 'Alaskan Wilderness Adventure',
         theme: 'Wildlife and Nature Exploration',
         price: 20000,
-        image: 'assets/DV 13.jpg',
+        imageURL: 'assets/DV 13.jpg',
         information:
           'Immerse yourself in the breathtaking beauty of the Alaskan wilderness. Cruise through fjords, witness majestic glaciers, and spot diverse wildlife, including bears, whales, and eagles, as you explore the rugged landscapes of Alaska.',
       },
@@ -151,7 +151,7 @@ trips = [
         destination: 'Mediterranean Odyssey',
         theme: 'Historical and Cultural Journey',
         price: 14000,
-        image: 'assets/DV 14.jpg',
+        imageURL: 'assets/DV 14.jpg',
         information:
           'Sail through the Mediterranean and explore the rich history and culture of ancient civilizations. Visit iconic cities, archaeological sites, and enjoy Mediterranean cuisine while experiencing the charm of this historic region.',
       },
@@ -165,6 +165,7 @@ function generateCard(trip, index) {
   return `
     <div class="col-4">
       <div class="card">
+
         <img src="${trip.imageURL}" class="card-img-top" alt="...">
         <div class="card-body">
           <h4 class="card-title">${trip.destination}</h4>
@@ -174,10 +175,38 @@ function generateCard(trip, index) {
             - ${trip.duration} Days <br>
             - ${trip.information}
           </p>
+          <p style.color="blue" class="more-info">more info</p>
+          <div class="book-container">
+          <input type="number" placeholder="number of tickets">
+          <button class="btn btn-primary add-button">Book</button>
+        </div>
         </div>
       </div>
     </div>
   `;
+}
+
+basket = [];
+if(localStorage.getItem('basket') == null){
+  localStorage.setItem('basket', JSON.stringify([]));
+}else{
+  basket = JSON.parse(localStorage.getItem('basket'));
+}
+
+function addToBooking(event) {
+  const card = $(this).closest('.card');
+  const price = card.find("#priceText").text();
+  const tempPrice = price.split("R")[1];
+  const numOfTickets = card.find("input").val();
+  const cost = numOfTickets * tempPrice;
+  const id = Math.floor(Math.random() * 1000000);
+  const trip = {
+    tripCode: id,
+    ticketQuantity: numOfTickets,
+    cost: cost
+  };
+  basket.push(trip);
+  localStorage.setItem('basket', JSON.stringify(basket));
 }
 
 populateTrips = (tempTrips) => {
@@ -188,18 +217,71 @@ populateTrips = (tempTrips) => {
     container.append(cardHTML);
   });
 
-  $(".card").click(function () {
-    const descriptionId = $(this).find(".description").attr("id");
+  $(".more-info").click(function () {
+
+    const descriptionId = $(this).closest('.card').find(".description").attr("id");
+    
+    if($(this).text() == "less-info"){
+      $(this).text("more-info")
+    }else{
+    $(this).text("less-info")
+    }
+    
     $("#" + descriptionId).toggle();
-    $(this).find(".card-img-top").toggleClass("small");
+    $(this).closest('.card').find(".card-img-top").toggleClass("small");
+
+    $(this).closest('.card').find(".book-container").toggle();
+
   });
+
+  
+  $('.add-button').on('click', addToBooking);
 
   $(".description").hide();
 }
 
+
+
+
+function populateBasket() {
+  basket.forEach(function(cruise) {
+    var html = '<div class="item-container">' +
+              '<h3>Cruise Information:</h3>' +
+              '<p>Trip Code: ' + cruise.tripCode + '</p>' +
+              '<p>Ticket Quantity: ' + cruise.ticketQuantity + '</p>' +
+              '<p>Cost: ' + cruise.cost + '</p>' +
+              '<button class="btn btn-primary remove-button">remove</button>' +
+              '</div>';
+
+    $('.items').append(html);
+  });
+  $('.remove-button').on('click', removeItem);
+  let total = 0;
+  basket.forEach(function(cruise) {
+    total += cruise.cost;
+  });
+
+  $('#basket-total').text("Total: R" + total);
+}
+
+function removeItem(event) {
+  $(this).closest('.item-container').remove();
+  const tripCode = $(this).closest('.item-container').find('p:first').text().split(' ')[2];
+  basket = basket.filter(cruise => cruise.tripCode != tripCode);
+  localStorage.setItem('basket', JSON.stringify(basket));
+}
+
+
+
+
+
+
+
 $(document).ready(function () {
   populateTrips(trips);
+  populateBasket();
 });
+
 
 
 
@@ -238,4 +320,14 @@ function rowBoatSpecial(YorN){
     tempTrips = trips;
   }
   populateTrips(tempTrips);
+}
+
+function checkout(){
+  $('#successModal').modal('show');
+}
+
+function removeAll(){
+  localStorage.clear();
+  $('.items').empty();
+  $('#basket-total').text("Total: R0");
 }
