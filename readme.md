@@ -2,7 +2,7 @@
 
 This is my project for Term 3.
 
-[Watch the demo »]()
+[Watch the demo »](https://drive.google.com/file/d/1YOu8lE2DIKXzi3xoE4Ux6bhY03Z2gwoO/view?usp=sharing)
 
 ## Table of Contents
 
@@ -38,7 +38,7 @@ To start developing your Cruise Liner company's online booking system website lo
 
 1. Clone the repo
 ```sh
-git clone https://github.com/paulowi/DV100-T3-Class-Project-Test
+git clone https://github.com/Kzte/Final-Term-3
 ```
 2. Open the project
 
