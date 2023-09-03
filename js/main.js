@@ -12,6 +12,8 @@ $(document).ready(function(){
 
   var apiEndpoint = apiUrl + "?lat=" + latitude + "&lon=" + longitude + "&appid=" + apiKey;
 
+  $(".title").text("Welcome to Pearl Serenity");
+
   $.ajax({
       url: apiEndpoint,
       method: "GET",
@@ -25,6 +27,8 @@ $(document).ready(function(){
       }
   });
 
+  var cart = [];
+
 
 
 // let trip = {
@@ -37,6 +41,8 @@ $(document).ready(function(){
 trips = [
     {
         duration: 12,
+        originPort: 'Durban',
+        destinationPort: 'Durban',
         destination:'Pearl Quest',
         theme:'Southern Coast of Africa',
         price: 10000,
@@ -45,6 +51,8 @@ trips = [
     },
     {
         duration: 10,
+        originPort: 'Durban',
+        destinationPort: 'Cape Town',
         destination:'Tropical Fish Expedition ',
         theme:'Exotic Destiations in the Indian Ocean',
         price:25000,
@@ -53,6 +61,8 @@ trips = [
     },
     {
         duration: 8,
+        originPort: 'Durban',
+        destinationPort: 'Cape Town',
         destination:'Retro Cruise',
         theme:'iconic cities and regions around the world that were significant during the various time periods',
         price:30000,
@@ -61,6 +71,8 @@ trips = [
     },
     {
         duration: 7,
+        originPort: 'Durban',
+        destinationPort: 'Durban',
         destination:'Exotic Islands of the Coral Triangle',
         theme:'Coral Reef Exploration',
         price:35000,
@@ -69,6 +81,8 @@ trips = [
     },
     {
         duration: 5,
+        originPort: 'Durban',
+        destinationPort: 'Cape Town',
         destination:'Los Angeles to Baja California',
         theme:'Glamorous Hollywood Experience',
         price:50000,
@@ -77,13 +91,75 @@ trips = [
     },
     {
         duration: 7,
+        originPort: 'Durban',
+        destinationPort: 'Cape Town',
         destination:'Caribbean Adventure',
         theme:' Family Fun Cruise',
         price:15000,
         imageURL:"assets/Dv 8.PNG",
         information:'Embark on a 7-night Family Fun Cruise to the enchanting Caribbean, where excitement awaits every member of the family. Our cruise is designed to create cherished memories with loved ones, featuring themed kids clubs, interactive games, and engaging family-friendly activities. Explore pristine beaches, partake in snorkeling adventures, and relish quality time together. With the special offer of children under 12 sailing free with two paying adults'
     },
-]
+
+    {
+      duration: 14,
+      originPort: 'Miami',
+      destinationPort: 'Key West, Florida',
+      destination: 'Literary Voyage',
+      theme: 'Reading Theme Cruise',
+      price: 15000,
+      image: 'assets/DV 10.jpg',
+      information:
+        'Embark on a 2-week Literary Voyage designed for book lovers. Immerse yourself in the world of literature with onboard book clubs, author meet-and-greets, and literary-themed excursions. Explore the charming Key West, known for its rich literary history, and enjoy reading under the Florida sun.',
+    },
+      {
+        duration: 14,
+        originPort: 'Sydney, Australia',
+        destinationPort: 'Auckland, New Zealand',
+        destination: 'Down Under Discovery',
+        theme: 'Australasian Exploration',
+        price: 28000,
+        image: 'assets/DV 11.jpg',
+        information:
+          'Discover the wonders of Australasia on this 2-week cruise. Explore the stunning landscapes, vibrant cities, and unique wildlife of Australia and New Zealand. Experience the rich culture and natural beauty of this diverse region.',
+      },
+      {
+        duration: 11,
+        originPort: 'Miami',
+        destinationPort: 'Cozumel, Mexico',
+        destination: 'Mayan Mysteries',
+        theme: 'Ancient Civilizations Expedition',
+        price: 16500,
+        image: 'assets/DV 12.jpg',
+        information:
+          'Embark on a journey to uncover the mysteries of the Mayan civilization. Visit archaeological sites, learn about ancient rituals, and enjoy the beautiful beaches of Cozumel while delving into the history and culture of the Mayan people.',
+      },
+      {
+        duration: 12,
+        originPort: 'Vancouver, Canada',
+        destinationPort: 'Anchorage, Alaska',
+        destination: 'Alaskan Wilderness Adventure',
+        theme: 'Wildlife and Nature Exploration',
+        price: 20000,
+        image: 'assets/DV 13.jpg',
+        information:
+          'Immerse yourself in the breathtaking beauty of the Alaskan wilderness. Cruise through fjords, witness majestic glaciers, and spot diverse wildlife, including bears, whales, and eagles, as you explore the rugged landscapes of Alaska.',
+      },
+      {
+        duration: 6,
+        originPort: 'Barcelona, Spain',
+        destinationPort: 'Athens, Greece',
+        destination: 'Mediterranean Odyssey',
+        theme: 'Historical and Cultural Journey',
+        price: 14000,
+        image: 'assets/DV 14.jpg',
+        information:
+          'Sail through the Mediterranean and explore the rich history and culture of ancient civilizations. Visit iconic cities, archaeological sites, and enjoy Mediterranean cuisine while experiencing the charm of this historic region.',
+      },
+      
+      
+    ];
+    
+
 
 function generateCard(trip, index) {
   return `
@@ -137,5 +213,29 @@ function DurationFilter(start,end){
 
 function PriceFilter(min, max){
   const tempTrips = trips.filter(trip => (trip.price >= min && trip.price <= max));
+  populateTrips(tempTrips);
+}
+
+function roundTripFilter(filter){
+  let tempTrips = null;
+  if(filter == ' both'){
+    tempTrips = tempTrips;
+  }else if(filter == 'yes'){
+    tempTrips = trips.filter(trip => (trip.originPort === trip.destinationPort));
+  }else{
+    tempTrips = trips.filter(trip => (trip.originPort !== trip.destinationPort));
+  }
+  
+  populateTrips(tempTrips);
+}
+
+function rowBoatSpecial(YorN){
+  let tempTrips = null;
+  if(YorN == true){
+    tempTrips = trips.sort((a,b) => (a.price > b.price) ? 1 : -1).slice(0,5);
+  }
+  else if(YorN == false){
+    tempTrips = trips;
+  }
   populateTrips(tempTrips);
 }

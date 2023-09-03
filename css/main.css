@@ -149,3 +149,12 @@ footer{
 .dropdown-item:hover{
     background: #8b7554;
 }
+
+#title{
+    width: 100%;
+    height: fit-content;
+    display: grid;
+    place-items: center;
+    font-family: Quicksand ;
+    color:#3C5E62;
+}

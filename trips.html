@@ -69,23 +69,22 @@
 
         <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-           Theme
+           Row Boat Special
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">All</a></li>
-            <li><a class="dropdown-item" href="#">Fish and Coral</a></li>
-            <li><a class="dropdown-item" href="#">Glamorous</a></li>
+            <li onclick="rowBoatSpecial(true)"><a class="dropdown-item" href="#">Yes</a></li>
+            <li onclick="rowBoatSpecial(false)"><a class="dropdown-item" href="#">No</a></li>
           </ul>
         </div>
 
         <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Destination
+            Round Trip
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">All</a></li>
-            <li><a class="dropdown-item" href="#">BLAH </a></li>
-            <li><a class="dropdown-item" href="#">BLAH BLEH </a></li>
+            <li><a onclick="roundTripFilter('both')" class="dropdown-item" href="#">All</a></li>
+            <li><a onclick="roundTripFilter('yes')" class="dropdown-item" href="#">Yes</a></li>
+            <li><a onclick="roundTripFilter('no')" class="dropdown-item" href="#">No</a></li>
           </ul>
         </div>
       </div>
