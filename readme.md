@@ -9,6 +9,7 @@ This is my project for Term 3.
 * [About the Project](#about-the-project)
    * [Home](#home)
    * [Trips Page](#trips-page)
+   * [Purchase Page](#purchase-page)
 * [Getting Started](#getting-started)
   * [Installing](#installing)
 * [Built With](#built-with)
@@ -28,6 +29,11 @@ This project involves creating a website for a Cruise Liner company that offers 
 ### Trips Page
 
 ![PearlSerenityLogo](/assets/trips%20page%20mockup.png)
+
+### Purchase Page
+
+![PearlSerenityLogo](/assets/macbook%20air%20mockup%20purchase.png)
+
 
 ## Getting Started
 
