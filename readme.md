@@ -1,6 +1,6 @@
-![EvergreenLogo](/assets/readme/Readme_cover.png)
+![PearlSerenityLogo](/assets/Logo%20dv.png)
 
-This is a demo project which aims to showcase more advanced javascript and jQuery to first year development students.
+This is my project for Term 3.
 
 [Watch the demo »]()
 
@@ -19,19 +19,20 @@ This is a demo project which aims to showcase more advanced javascript and jQuer
 
 ## About The Project
 
-Evergreen allows users to browse and filter different plants to find the perfect addition to their home.
+This project involves creating a website for a Cruise Liner company that offers an online booking system. The website will be developed using JavaScript and jQuery for functionality. It will also demonstrate version control using Git and incorporate an API to enhance the user experience. Users will be able to book cruise trips and view journey details through an online web form. The project requires designing the website's aesthetics using HTML and CSS and implementing functionality with jQuery.
 
 ### Home
 
-![EvergreenLogo](/assets/readme/readme_homepage.png)
+![PearlSerenityLogo](/assets/macbook%20air%20mockup%20dv.png)
 
 ### Browse Plants
 
-![EvergreenLogo](/assets/readme/readme_browsepage.png)
+![PearlSerenityLogo](/assets/trips%20page%20mockup.png)
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+To start developing your Cruise Liner company's online booking system website locally, ensure you have Git installed. Clone the project repository using 'git clone <repository_url>' in your terminal. If you need an API, secure the credentials. Customize HTML and CSS for your design, integrate functionality with jQuery, and test it locally. Maintain version control with Git by committing changes. If you're using an API, handle calls and responses. Thoroughly test the entire website, and if desired, deploy it using hosting services like GitHub Pages or Netlify. This approach lets you develop, test, and potentially deploy your website efficiently.
 
 ### Installing
 
@@ -62,8 +63,7 @@ Contributions are what make the open source community such an amazing place to b
 
 ## Authors
 
-* **Paul Loots** - *Javascript & HTML* - [PaulLoots](https://github.com/PaulLoots)
-* **Carlo Kuyper** - *Open Weather API* - [CarloOpenWindow](https://github.com/CarloOpenWindow)
+* **Kate-Lynn Guy** - *Javascript,HTML,CSS and Open Weather API* - [Kate-LynnGuy](https://github.com/Kzte)
 
 See also the list of [contributors](https://github.com/paulowi/DV100-T3-Class-Project-Test/graphs/contributors) who participated in this project.
 
@@ -73,6 +73,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgements
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* Paul Loots code in our class project
+* Pexels, Pintrest for layout ideas and images
+* Franco van Vuuren 
