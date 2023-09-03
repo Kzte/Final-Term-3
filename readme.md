@@ -65,7 +65,7 @@ Contributions are what make the open source community such an amazing place to b
 
 * **Kate-Lynn Guy** - *Javascript,HTML,CSS and Open Weather API* - [Kate-LynnGuy](https://github.com/Kzte)
 
-See also the list of [contributors](https://github.com/paulowi/DV100-T3-Class-Project-Test/graphs/contributors) who participated in this project.
+
 
 ## License
 
